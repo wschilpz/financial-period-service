@@ -61,6 +61,9 @@ var initDb = function(callback) {
 
 */
 
+var routes = require('./services/financial-period-calculator/routes.js');
+routes(app);
+
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
@@ -97,7 +100,7 @@ app.get('/pagecount', function (req, res) {
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
-  res.status(500).send('Something bad happened!');
+  res.status(500).json(err);
 });
 
 /*initDb(function(err){
