@@ -1,12 +1,14 @@
 //  OpenShift sample Node application
 var express = require('express'),
+   cors = require('cors'),
     app     = express(),
     morgan  = require('morgan');
     
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
-app.use(morgan('combined'))
+app.use(morgan('combined'));
+app.use(cors());
 
 var db = null;
 
