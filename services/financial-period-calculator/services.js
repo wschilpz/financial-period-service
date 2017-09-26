@@ -112,10 +112,16 @@ function caluclate_period(start_month, eval_date, idlevel){
     let id = eval_date.getFullYear().toString() + (eval_date.getMonth() + 1).toString();
     if(idlevel == "day") id += eval_date.getDate().toString();
 
+    let fh = fq < 3 ? 1 : 2;
+
     return {
         id :  id,
-        fy : fy, 
+        fy : fy,
+        fy_string : "FY" + fy, 
         short_fy: shortFy, 
+        short_fy_string : "FY" + shortFy,
+        half : fh,
+        half_string : "H" + fh,
         fq : fq, 
         period_string : "FY" + fy + "Q" + fq, 
         short_string: "FY" + shortFy + "Q" + fq };
@@ -126,7 +132,7 @@ function json_response(data, res){
 }
 
 function csv_response(data, res){
-    var fields = ["id", "fy", "short_fy", "fq", "period_string", "short_string"];
+    var fields = Object.keys(data);
 
     var csv = json2csv({data:data, fields:fields});
 
