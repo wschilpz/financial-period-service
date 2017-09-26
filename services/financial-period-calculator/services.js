@@ -121,7 +121,8 @@ function caluclate_period(start_month, eval_date, idlevel){
         short_fy: shortFy, 
         short_fy_string : "FY" + shortFy,
         half : fh,
-        half_string : "H" + fh,
+        half_string : "FY" + fy + "H" + fh,
+        half_short_string : "FY" + shortFy + "H" + fh,
         fq : fq, 
         period_string : "FY" + fy + "Q" + fq, 
         short_string: "FY" + shortFy + "Q" + fq };
