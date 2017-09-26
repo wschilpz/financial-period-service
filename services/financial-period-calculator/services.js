@@ -132,7 +132,12 @@ function json_response(data, res){
 }
 
 function csv_response(data, res){
-    var fields = Object.keys(data);
+    var fields;
+    if(Array.isArray(data)){
+        fields = Object.keys(data[0]);
+    }else{
+        fields = Object.keys(data);
+    }
 
     var csv = json2csv({data:data, fields:fields});
 
