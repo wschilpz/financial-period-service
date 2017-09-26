@@ -6,6 +6,6 @@ module.exports = function(app){
     app.route('/api/financialperiod')
         .get(fp_calculator.financial_period);
 
-    app.route('/api/fincancialperiodslices')
+    app.route('/api/financialperiodslices')
         .get(fp_calculator.financial_period_timeslice);
 }
